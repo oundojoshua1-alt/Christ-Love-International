@@ -3,301 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Christ Love International</title>
+  <meta name="description" content="Christ Love International — a Christ-centered mission sharing the Gospel, making disciples, serving communities, and showing practical love.">
+  <title>Christ Love International | Christ. Love. Mission.</title>
 
   <style>
+    :root {
+      --navy: #071426;
+      --navy2: #0d2340;
+      --gold: #d9a441;
+      --gold2: #f3d28a;
+      --white: #ffffff;
+      --muted: #b8c5d6;
+      --light: #f5f7fa;
+      --ink: #172033;
+      --shadow: 0 18px 50px rgba(5,17,34,.14);
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+    }
+
+    html {
       scroll-behavior: smooth;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #f8f7f4;
-      color: #222;
-      line-height: 1.6;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      line-height: 1.7;
+      background: #fff;
     }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
 
     header {
-      background: #111;
-      color: white;
-      padding: 20px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 50;
+      background: rgba(7,20,38,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
 
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 14px;
-    }
-
-    nav a:hover {
-      opacity: 0.7;
-    }
-
-    .hero {
-      min-height: 90vh;
+    nav {
+      min-height: 76px;
       display: flex;
       align-items: center;
-      padding: 70px 8%;
-      background: linear-gradient(135deg, #171717, #3b3b3b);
-      color: white;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .hero-content {
-      max-width: 750px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: .5px;
     }
 
-    .hero h1 {
-      font-size: clamp(45px, 8vw, 85px);
-      line-height: 1;
-      margin-bottom: 25px;
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
     }
 
-    .hero h1 span {
-      color: #d4af37;
+    .brand span {
+      font-size: 15px;
+      line-height: 1.15;
     }
 
-    .hero p {
-      font-size: 19px;
-      max-width: 650px;
-      margin-bottom: 30px;
-      color: #ddd;
-    }
-
-    .button {
-      display: inline-block;
-      background: #d4af37;
-      color: #111;
-      padding: 13px 24px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-right: 10px;
-    }
-
-    .button.dark {
-      background: transparent;
-      color: white;
-      border: 1px solid white;
-    }
-
-    section {
-      padding: 80px 8%;
-    }
-
-    .section-title {
-      font-size: 38px;
-      margin-bottom: 15px;
-    }
-
-    .section-text {
-      max-width: 700px;
-      color: #666;
-      margin-bottom: 40px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-    }
-
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-    }
-
-    .card h3 {
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      color: #666;
-    }
-
-    .verse {
-      background: #171717;
-      color: white;
-      text-align: center;
-    }
-
-    .verse p {
-      max-width: 750px;
-      margin: auto;
-      font-size: 25px;
-      font-style: italic;
-    }
-
-    .verse small {
+    .brand small {
       display: block;
-      margin-top: 15px;
-      color: #d4af37;
+      color: var(--gold2);
+      font-size: 9px;
+      letter-spacing: 2px;
+      margin-top: 3px;
     }
 
-    .contact {
-      text-align: center;
+    .navlinks {
+      display: flex;
+      gap: 25px;
+      align-items: center;
     }
 
-    footer {
-      background: #111;
-      color: #aaa;
-      text-align: center;
-      padding: 30px 8%;
+    .navlinks a {
+      color: #dce5f1;
       font-size: 14px;
     }
 
-    footer strong {
-      color: white;
+    .navlinks a:hover {
+      color: var(--gold2);
     }
 
-    @media (max-width: 700px) {
-      header {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      nav a {
-        margin: 0 7px;
-      }
-
-      .hero {
-        min-height: 80vh;
-      }
+    .nav-cta {
+      padding: 10px 16px;
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      color: #fff !important;
     }
-  </style>
-</head>
 
-<body>
+    /* HERO */
 
-  <header>
-    <div class="logo">Christ Love International ✝️</div>
-
-    <nav>
-      <a href="#about">About</a>
-      <a href="#mission">Mission</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="hero-content">
-      <p>WELCOME TO CHRIST LOVE INTERNATIONAL</p>
-
-      <h1>Love that points people to <span>Christ.</span></h1>
-
-      <p>
-        A Christ-centered mission committed to sharing the Gospel,
-        discipling lives, encouraging people, and serving vulnerable
-        communities through practical love and outreach.
-      </p>
-
-      <a href="#mission" class="button">Our Mission</a>
-      <a href="#contact" class="button dark">Get Involved</a>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2 class="section-title">About Us</h2>
-
-    <p class="section-text">
-      Christ Love International exists to make Christ known through
-      Gospel outreach, discipleship, mentorship, encouragement, and
-      practical acts of love. We believe every person needs the hope
-      found in Jesus Christ.
-    </p>
-  </section>
-
-  <section id="mission">
-    <h2 class="section-title">What We Do</h2>
-
-    <p class="section-text">
-      We seek to serve people both spiritually and practically,
-      trusting God to open doors and provide what is needed.
-    </p>
-
-    <div class="cards">
-
-      <div class="card">
-        <h3>✝️ Gospel Outreach</h3>
-        <p>
-          Sharing the message of Jesus Christ and encouraging people
-          to know and follow Him.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>📖 Discipleship</h3>
-        <p>
-          Helping believers grow in faith, Scripture, prayer, and
-          their relationship with Christ.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>🤝 Mentorship</h3>
-        <p>
-          Encouraging students, young people, families, and individuals
-          to discover purpose and hope in Christ.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>❤️ Practical Love</h3>
-        <p>
-          Supporting vulnerable people and communities through food,
-          basic supplies, visits, encouragement, and other practical needs.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="verse">
-    <p>
-      “In all your ways acknowledge Him, and He shall direct your paths.”
-    </p>
-
-    <small>Proverbs 3:6</small>
-  </section>
-
-  <section id="contact" class="contact">
-    <h2 class="section-title">Walk With Us</h2>
-
-    <p class="section-text" style="margin-left:auto;margin-right:auto;">
-      We are starting small, trusting God to lead every step.
-      If you would like to pray, serve, partner, or learn more about
-      Christ Love International, we would love to hear from you.
-    </p>
-
-    <a href="mailto:christloveinternational@example.com" class="button">
-      Contact Us
-    </a>
-  </section>
-
-  <footer>
-    <p>
-      <strong>Christ Love International</strong>
-      — For His glory. ✝️
-    </p>
-
-    <p>© 2026 Christ Love International. All rights reserved.</p>
-  </footer>
-
-</body>
-</html>
+    .hero {
+      min-height: 86vh;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 20%, #173
