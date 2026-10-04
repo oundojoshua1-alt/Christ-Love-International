@@ -1,132 +1,925 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Christ Love International — a Christ-centered mission sharing the Gospel, making disciples, serving communities, and showing practical love.">
-  <title>Christ Love International | Christ. Love. Mission.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root {
-      --navy: #071426;
-      --navy2: #0d2340;
-      --gold: #d9a441;
-      --gold2: #f3d28a;
-      --white: #ffffff;
-      --muted: #b8c5d6;
-      --light: #f5f7fa;
-      --ink: #172033;
-      --shadow: 0 18px 50px rgba(5,17,34,.14);
-    }
+    <title>Christ Love International</title>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <meta name="description" content="Christ Love International — a Christ-centered mission sharing the Gospel, making disciples, mentoring lives, and serving communities.">
 
-    html {
-      scroll-behavior: smooth;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--ink);
-      line-height: 1.7;
-      background: #fff;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8f8f6;
+            color: #172033;
+            line-height: 1.6;
+        }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+        /* NAVIGATION */
 
-    .container {
-      width: min(1120px, 92%);
-      margin: auto;
-    }
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #071426;
+            padding: 14px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
 
-    /* NAVIGATION */
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(7,20,38,.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
+        /* CODED LOGO */
 
-    nav {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
+        .logo-mark {
+            width: 48px;
+            height: 48px;
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4af37;
+            font-size: 27px;
+            font-weight: bold;
+            position: relative;
+            flex-shrink: 0;
+        }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: #fff;
-      font-weight: 800;
-      letter-spacing: .5px;
-    }
+        .logo-mark::before {
+            content: "";
+            position: absolute;
+            width: 58px;
+            height: 29px;
+            border: 1px solid rgba(212,175,55,0.55);
+            border-radius: 50%;
+            transform: rotate(-25deg);
+        }
 
-    .brand img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-    }
+        .logo-mark::after {
+            content: "";
+            position: absolute;
+            width: 58px;
+            height: 29px;
+            border: 1px solid rgba(212,175,55,0.3);
+            border-radius: 50%;
+            transform: rotate(25deg);
+        }
 
-    .brand span {
-      font-size: 15px;
-      line-height: 1.15;
-    }
+        .logo-name {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
 
-    .brand small {
-      display: block;
-      color: var(--gold2);
-      font-size: 9px;
-      letter-spacing: 2px;
-      margin-top: 3px;
-    }
+        .logo-name strong {
+            color: white;
+            font-size: 15px;
+            letter-spacing: 1.5px;
+        }
 
-    .navlinks {
-      display: flex;
-      gap: 25px;
-      align-items: center;
-    }
+        .logo-name span {
+            color: #d4af37;
+            font-size: 9px;
+            letter-spacing: 3px;
+            margin-top: 5px;
+        }
 
-    .navlinks a {
-      color: #dce5f1;
-      font-size: 14px;
-    }
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
 
-    .navlinks a:hover {
-      color: var(--gold2);
-    }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
 
-    .nav-cta {
-      padding: 10px 16px;
-      border: 1px solid var(--gold);
-      border-radius: 999px;
-      color: #fff !important;
-    }
+        .nav-links a:hover {
+            color: #d4af37;
+        }
 
-    /* HERO */
+        /* HERO */
 
-    .hero {
-      min-height: 86vh;
-      display: grid;
-      place-items: center;
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 80% 20%, #173
+        .hero {
+            min-height: 88vh;
+            background:
+                linear-gradient(rgba(7,20,38,0.88), rgba(7,20,38,0.92)),
+                radial-gradient(circle at top right, #233b63, #071426 65%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 80px 6%;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-small {
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #d4af37;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: auto;
+            font-size: 18px;
+            color: #dce3ec;
+        }
+
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-gold {
+            background: #d4af37;
+            color: #071426;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212,175,55,0.25);
+        }
+
+        .btn-outline {
+            border: 1px solid #d4af37;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: #d4af37;
+            color: #071426;
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 90px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title small {
+            color: #b18c1f;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-top: 10px;
+            color: #071426;
+        }
+
+        .section-title p {
+            max-width: 650px;
+            margin: 15px auto 0;
+            color: #667085;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            max-width: 1050px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 30px;
+            margin-bottom: 18px;
+            color: #071426;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: #596273;
+        }
+
+        .verse-box {
+            background: #071426;
+            color: white;
+            padding: 35px;
+            border-radius: 18px;
+            border-left: 5px solid #d4af37;
+        }
+
+        .verse-box p {
+            color: white;
+            font-size: 20px;
+            font-style: italic;
+        }
+
+        .verse-box strong {
+            display: block;
+            margin-top: 18px;
+            color: #d4af37;
+        }
+
+        /* MINISTRIES */
+
+        .ministries {
+            background: #f2f4f7;
+        }
+
+        .cards {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #071426;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #667085;
+            font-size: 15px;
+        }
+
+        /* SCRIPTURE */
+
+        .scripture {
+            background: #071426;
+            color: white;
+            text-align: center;
+        }
+
+        .scripture .section-title h2 {
+            color: white;
+        }
+
+        .scripture-text {
+            max-width: 850px;
+            margin: auto;
+            font-size: 30px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .scripture-reference {
+            margin-top: 20px;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        /* ACTION */
+
+        .action {
+            background: white;
+        }
+
+        .action-list {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            gap: 15px;
+        }
+
+        .action-item {
+            padding: 22px;
+            background: #f6f7f9;
+            border-radius: 12px;
+            border-left: 4px solid #d4af37;
+        }
+
+        .action-item strong {
+            color: #071426;
+        }
+
+        /* IMPACT */
+
+        .impact {
+            background: linear-gradient(135deg, #d4af37, #b78f20);
+            text-align: center;
+            color: #071426;
+        }
+
+        .impact h2 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .impact p {
+            font-size: 19px;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* INVOLVEMENT */
+
+        .involvement {
+            background: #f2f4f7;
+        }
+
+        .involvement-grid {
+            max-width: 950px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .involve {
+            background: white;
+            padding: 35px 25px;
+            text-align: center;
+            border-radius: 16px;
+        }
+
+        .involve h3 {
+            margin: 12px 0;
+            color: #071426;
+        }
+
+        .involve p {
+            color: #667085;
+        }
+
+        .involve-icon {
+            font-size: 35px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: white;
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .contact-box p {
+            color: #667085;
+            margin-bottom: 20px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #050d19;
+            color: #aeb7c5;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer .footer-brand {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        footer span {
+            color: #d4af37;
+        }
+
+        footer p {
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            nav {
+                padding: 12px 5%;
+            }
+
+            .hero {
+                min-height: 80vh;
+                padding: 70px 6%;
+            }
+
+            .hero h1 {
+                font-size: 46px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 70px 6%;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .involvement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .scripture-text {
+                font-size: 23px;
+            }
+
+            .impact h2 {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <a href="#" class="brand">
+
+            <div class="logo-mark">✝</div>
+
+            <div class="logo-name">
+                <strong>CHRIST LOVE</strong>
+                <span>INTERNATIONAL</span>
+            </div>
+
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#ministries">Ministries</a></li>
+            <li><a href="#impact">Impact</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-small">
+                Christ • Love • Mission
+            </div>
+
+            <h1>
+                Love that points people <span>to Christ.</span>
+            </h1>
+
+            <p>
+                Christ Love International exists to share the Gospel,
+                make disciples, mentor lives and demonstrate the love
+                of Christ through practical service.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#about" class="btn btn-gold">
+                    Discover the Mission
+                </a>
+
+                <a href="#involvement" class="btn btn-outline">
+                    Walk With Us
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <div class="section-title">
+
+            <small>Who We Are</small>
+
+            <h2>Christ first. People loved. Lives changed.</h2>
+
+            <p>
+                Our mission begins with Jesus and flows outward
+                through love, service, discipleship and hope.
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-text">
+
+                <h3>Living the Gospel beyond words.</h3>
+
+                <p>
+                    Christ Love International is a Christ-centered
+                    mission committed to sharing the Good News of Jesus
+                    Christ while responding to the practical needs of
+                    people and communities.
+                </p>
+
+                <p>
+                    We believe that genuine Christian love should
+                    point people toward Christ while also bringing
+                    encouragement, dignity, compassion and practical help.
+                </p>
+
+                <p>
+                    We are starting small and trusting God to lead
+                    every step — from Kenya to the nations.
+                </p>
+
+            </div>
+
+
+            <div class="verse-box">
+
+                <p>
+                    “In all your ways acknowledge Him,
+                    and He will make your paths straight.”
+                </p>
+
+                <strong>
+                    Proverbs 3:6
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MINISTRIES -->
+
+    <section class="ministries" id="ministries">
+
+        <div class="section-title">
+
+            <small>What We Do</small>
+
+            <h2>Faith in Action</h2>
+
+            <p>
+                Serving people while keeping Christ at the center.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <div class="card-icon">✝️</div>
+
+                <h3>Gospel Outreach</h3>
+
+                <p>
+                    Sharing the message of Jesus Christ through
+                    conversations, evangelism, outreach and Christian
+                    encouragement.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">📖</div>
+
+                <h3>Discipleship</h3>
+
+                <p>
+                    Helping believers grow deeper in God's Word,
+                    prayer, faith and obedience to Christ.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">🎓</div>
+
+                <h3>School & Campus</h3>
+
+                <p>
+                    Encouraging students through mentorship,
+                    Christian fellowship, guidance and the Gospel.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">🤝</div>
+
+                <h3>Mentorship</h3>
+
+                <p>
+                    Walking alongside young people and others who
+                    need direction, encouragement and hope.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">❤️</div>
+
+                <h3>Practical Love</h3>
+
+                <p>
+                    Responding to physical needs through food,
+                    hygiene supplies, sanitary support and basic care.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">🌍</div>
+
+                <h3>Community Outreach</h3>
+
+                <p>
+                    Visiting vulnerable communities and children's
+                    homes while showing the compassion of Christ.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SCRIPTURE -->
+
+    <section class="scripture">
+
+        <div class="section-title">
+
+            <small>Our Foundation</small>
+
+            <h2>Everything begins and ends with Him.</h2>
+
+        </div>
+
+        <div class="scripture-text">
+
+            “For from Him and through Him and for Him are all things.
+            To Him be the glory forever. Amen.”
+
+        </div>
+
+        <div class="scripture-reference">
+            Romans 11:36
+        </div>
+
+    </section>
+
+
+    <!-- FAITH IN ACTION -->
+
+    <section class="action">
+
+        <div class="section-title">
+
+            <small>On The Ground</small>
+
+            <h2>Faith expressed through love.</h2>
+
+            <p>
+                We want our faith to be visible through both
+                the Gospel we proclaim and the lives we serve.
+            </p>
+
+        </div>
+
+
+        <div class="action-list">
+
+            <div class="action-item">
+                ✝️ <strong>Gospel conversations</strong> —
+                sharing the hope of Jesus with people wherever God
+                opens the door.
+            </div>
+
+            <div class="action-item">
+                🎓 <strong>School and campus mentorship</strong> —
+                encouraging students spiritually, personally and academically.
+            </div>
+
+            <div class="action-item">
+                🏠 <strong>Children's homes and vulnerable communities</strong> —
+                visiting, encouraging and serving those in need.
+            </div>
+
+            <div class="action-item">
+                ❤️ <strong>Practical support</strong> —
+                helping with food, hygiene supplies and other basic needs
+                whenever resources allow.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- IMPACT -->
+
+    <section class="impact" id="impact">
+
+        <h2>Small beginnings. Eternal purpose.</h2>
+
+        <p>
+            We may be starting small, but our desire is big:
+            to see lives transformed by the love and truth of Jesus Christ.
+        </p>
+
+        <br>
+
+        <strong>
+            From Kenya to the nations. 🌍
+        </strong>
+
+    </section>
+
+
+    <!-- GET INVOLVED -->
+
+    <section class="involvement" id="involvement">
+
+        <div class="section-title">
+
+            <small>Walk With Us</small>
+
+            <h2>There is a place for you.</h2>
+
+            <p>
+                You can be part of what God is doing through prayer,
+                service, encouragement or partnership.
+            </p>
+
+        </div>
+
+
+        <div class="involvement-grid">
+
+
+            <div class="involve">
+
+                <div class="involve-icon">🙏🏽</div>
+
+                <h3>Pray</h3>
+
+                <p>
+                    Pray for the mission, the people we serve and
+                    for God's direction in every step.
+                </p>
+
+            </div>
+
+
+            <div class="involve">
+
+                <div class="involve-icon">🤲🏽</div>
+
+                <h3>Serve</h3>
+
+                <p>
+                    Use your time, gifts and abilities to serve
+                    people and point them toward Christ.
+                </p>
+
+            </div>
+
+
+            <div class="involve">
+
+                <div class="involve-icon">❤️</div>
+
+                <h3>Partner</h3>
+
+                <p>
+                    If the Lord puts it on your heart, you can
+                    support the mission as we grow.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+        <div
